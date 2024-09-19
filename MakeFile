@@ -1,0 +1,16 @@
+# Makefile for set_demo
+
+CXX = g++
+CXXFLAGS = -Wall -std=c++11
+
+# Target to compile the program
+set_demo: set_demo.o
+	$(CXX) $(CXXFLAGS) -o set_demo set_demo.o
+
+# Compile the object file
+set_demo.o: set_demo.cpp
+	$(CXX) $(CXXFLAGS) -c set_demo.cpp
+
+# Clean up the compiled files
+clean:
+	rm -f *.o set_demo
