@@ -1,16 +1,27 @@
-# Makefile for set_demo
+# Makefile for both set_demo and set_demo_with_union_intersection
 
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
 
-# Target to compile the program
+# Target to compile both programs
+all: set_demo set_demo_with_union_intersection
+
+# Target to compile and link set_demo
 set_demo: set_demo.o
 	$(CXX) $(CXXFLAGS) -o set_demo set_demo.o
 
-# Compile the object file
+# Target to compile the object file for set_demo
 set_demo.o: set_demo.cpp
 	$(CXX) $(CXXFLAGS) -c set_demo.cpp
 
+# Target to compile and link set_demo_with_union_intersection
+set_demo_with_union_intersection: set_demo_with_union_intersection.o
+	$(CXX) $(CXXFLAGS) -o set_demo_with_union_intersection set_demo_with_union_intersection.o
+
+# Target to compile the object file for set_demo_with_union_intersection
+set_demo_with_union_intersection.o: set_demo_with_union_intersection.cpp
+	$(CXX) $(CXXFLAGS) -c set_demo_with_union_intersection.cpp
+
 # Clean up the compiled files
 clean:
-	rm -f *.o set_demo
+	rm -f *.o set_demo set_demo_with_union_intersection
